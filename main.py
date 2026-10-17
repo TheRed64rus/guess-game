@@ -6,6 +6,9 @@ def play():
     except ValueError:
         limit = 10
         print("Это не число, играем до 10")
+    if limit < 1:
+        limit = 10
+        print("Число должно быть больше нуля, играем до 10")
     secret = random.randint(1, limit)
     guess = 0
     attempts = 0
