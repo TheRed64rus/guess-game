@@ -1,5 +1,15 @@
 import random
 
+
+def attempts_word(n):
+    if n == 1:
+        return "попытку"
+    elif n <= 4:
+        return "попытки"
+    else:
+        return "попыток"
+
+
 def play():
     try:
         limit = int(input("До какого числа играем? "))
@@ -21,12 +31,7 @@ def play():
             guess = int(input("Твоя догадка: "))
             attempts = attempts + 1
             if guess == secret:
-                if attempts == 1:
-                    word = "попытку"
-                elif attempts <= 4:
-                    word = "попытки"
-                else:
-                    word = "попыток"
+                word = attempts_word(attempts)
                 print(f"Угадал за {attempts} {word}")
             elif secret > guess:
                 print("Загаданное число больше")
